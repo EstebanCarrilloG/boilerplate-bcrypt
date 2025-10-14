@@ -1,11 +1,11 @@
 {
-  "name": "FCC-Advanced-Node-and-Express",
+  "name": "fcc-advanced-node-and-express",
   "author": "http://github.com/JosephLivengood",
   "version": "0.0.1",
   "description": "What am I about?",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node --watch server.js"
   },
   "dependencies": {
     "bcrypt": "5.0.1",
