@@ -41,15 +41,25 @@ const cors = require('cors');
 const allowedOriginsMatcher = /^https?:\/\/([\w-]+\.)*freecodecamp\.org/;
 
 module.exports = function (app) {
-  
+  // Remplacing cors function for testing purposes
   app.use(function (req, res, next) {
+    res.set({
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers":
+        "Origin, X-Requested-With, content-type, Accept",
+    });
+    app.disable("x-powered-by");
+    next();
+  });
+  
+  /*app.use(function (req, res, next) {
       const origin = req.get('origin');
       if(allowedOriginsMatcher.test(origin)) {
         res.setHeader('Access-Control-Allow-Origin', origin);
       }
       res.setHeader('Access-Control-Allow-Credentials', true);
       next();
-  });
+  });*/
   
   app.route('/_api/server.js')
     .get(function(req, res, next) {
