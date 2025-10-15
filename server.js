@@ -11,9 +11,12 @@ const someOtherPlaintextPassword = 'pass123';
 
 
 //START_ASYNC -do not remove notes, place code between correct pair of notes.
-
-
-
+bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
+  console.log(hash);
+  bcrypt.compare(myPlaintextPassword, hash, (err, res) => {
+    console.log(res);
+  });
+});
 //END_ASYNC
 
 //START_SYNC
@@ -52,5 +55,5 @@ const someOtherPlaintextPassword = 'pass123';
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log("Listening on port:", PORT)
+  console.log("Listening on port:", PORT);
 });
